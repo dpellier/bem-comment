@@ -1,0 +1,36 @@
+//== Button
+//------------------------------------------------------------------------------
+
+// button
+.button {
+  // appareance and autoprefixer : https://github.com/postcss/autoprefixer#why-doesnt-autoprefixer-support-appearance
+  -wekbit-appereance: initial;
+  -moz-appearance: initial;
+  display: inline-block;
+  padding: .5rem 1rem;
+  border: 0;
+  outline: none;
+  transition: background .2s linear;
+
+  // button--accept
+  &--accept {
+    color: $white;
+    background: $neonCarrot;
+    // button--accept:hover
+    &:hover {
+      background: $neonCarrot-D5;
+    }
+  }
+
+  &--cancel {
+    background: $mercury;
+
+    &:hover {
+      background: $mercury-D5;
+    }
+  }
+
+  & + & {
+    margin-left: .5rem;
+  }
+}
