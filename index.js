@@ -17,12 +17,7 @@ var stdout = [];
 module.exports = {
     processFiles: function() {
         cli.args.forEach(function(src) {
-            console.log(src);
-            try {
-                processFile(src);
-            } catch(e) {
-                console.log('Unable to open ' + src);
-            }
+            processFile(src);
         });
     }
 };
