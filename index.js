@@ -63,8 +63,16 @@ function processLine(line) {
 
     var spaces = /^\s+/gi.exec(line);
     var level = spaces ? spaces[0].length : 0;
+    var name = line.trim();
 
-    commentBuff[level] = line.trim().replace(/[\.&\s{]/gi, '');
+    // Sub classes need to have a different format
+    if (level === 0 || name.charAt(0) !== '.') {
+        name = name.replace(/[\.&\s{]/gi, '');
+    } else {
+        name = ' ' + name.replace(/[\.\s{]/gi, '');
+    }
+
+    commentBuff[level] = name;
 
     return buildComment(level) + '\n' + line;
 }
